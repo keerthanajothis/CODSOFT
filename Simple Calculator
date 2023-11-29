@@ -1,0 +1,74 @@
+//SIMPLE CALCULATOR
+
+#include <iostream>
+using namespace std;
+ 
+// Driver code
+int main()
+{
+    char oper;
+    
+    float number1, number2;
+ 
+    // It allows user to enter operator
+    
+    // i.e. +, -, *, /
+    
+    cin >> oper;
+ 
+    // It allow user to enter the operands
+    
+    cin >> number1 ;
+    
+    cin >> number2;
+ 
+    // Switch statement begins
+    
+    switch (oper) {
+        
+    // If user enter +
+    
+    case '+':
+    
+        cout << number1 + number2;
+        
+        break;
+ 
+    // If user enter -
+    
+    case '-':
+    
+        cout << number1 - number2;
+        
+        break;
+ 
+    // If user enter *
+    
+    case '*':
+    
+        cout << number1 * number2;
+        
+        break;
+ 
+    // If user enter /
+    
+    case '/':
+    
+        cout << number1 / number2;
+        
+        break;
+ 
+    // If the operator is other than +, -, * or /,
+    
+    // error message will display
+    
+    default:
+    
+        cout << "Error! The operator you entered is incorrect";
+    }
+    // switch statement ends
+ 
+    return 0;
+}
+
+
