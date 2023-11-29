@@ -1,0 +1,59 @@
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
+int main() {
+    const int MAX_STUDENTS = 100;
+
+    string studentNames[MAX_STUDENTS];
+    double studentGrades[MAX_STUDENTS];
+
+    int numStudents;
+
+    // Input number of students
+    cout << "Enter the number of students (up to " << MAX_STUDENTS << "): ";
+    cin >> numStudents;
+
+    // Input student names and grades
+    for (int i = 0; i < numStudents; ++i) {
+        cout << "Enter the name of student " << i + 1 << ": ";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the newline character left in the buffer
+        getline(cin, studentNames[i]);
+
+        cout << "Enter the grade for " << studentNames[i] << ": ";
+        cin >> studentGrades[i];
+    }
+
+    // Calculate average grade
+    double totalGrade = 0;
+    for (int i = 0; i < numStudents; ++i) {
+        totalGrade += studentGrades[i];
+    }
+    double averageGrade = totalGrade / numStudents;
+
+    // Find highest and lowest grades
+    double lowestGrade = studentGrades[0];
+    double highestGrade = studentGrades[0];
+    for (int i = 1; i < numStudents; ++i) {
+        if (studentGrades[i] < lowestGrade) {
+            lowestGrade = studentGrades[i];
+        }
+        if (studentGrades[i] > highestGrade) {
+            highestGrade = studentGrades[i];
+        }
+    }
+
+    // Display results
+    cout << "\nStudent Grades Summary:\n";
+    cout << "Student Name\tGrade\n";
+    for (int i = 0; i < numStudents; ++i) {
+        cout << studentNames[i] << "\t\t" << studentGrades[i] << endl;
+    }
+
+    cout << "\nAverage Grade: " << averageGrade << endl;
+    cout << "Highest Grade: " << highestGrade << endl;
+    cout << "Lowest Grade: " << lowestGrade << endl;
+
+    return 0;
+}
